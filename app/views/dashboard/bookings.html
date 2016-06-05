@@ -1,0 +1,36 @@
+<div>
+	<a ui-sref="bookings" class="pull-right btn btn-primary btn-outline btn-rounded">Reports</a>
+	<h2>Bookings <small>The place to do your bookings?</small></h2>
+	<div class="jumbotron">
+		<div class="container">
+			<h1>Welcome!</h1>
+
+	<title>Movie Stub - Book Movie Tickets Online</title>
+
+  <div class="container" data-ng-controller="movieStubController">
+
+      <h1>Movie Stub</h1>
+      <h4>Book Movie Tickets Online</h4>
+      <div class="row">
+              <div class="col-xs-3">
+                  <h4>Tickets available for:</h4>
+              </div>
+              <div class="col-xs-3">
+                  <input class="form-control" type="text" placeholder="Search a movie" data-ng-model="search">
+              </div>
+          </div>
+          <ul>
+            <li data-ng-repeat="movie in movies | orderBy:'name':true | filter:search">
+                {{movie.name | uppercase}}
+                <a href="javascript:" data-ng-click="getMovieById(movie.id)">Availability</a>
+            </li>
+        </ul>
+        <br/>
+        <label data-ng-show="currMovie">Availabilty for {{currMovie.name}} is {{currMovie.availability}}</label>
+
+      <pre>{{ movies | json }}</pre>
+			</p>
+      </d
+		</div>
+	</div>
+</div>

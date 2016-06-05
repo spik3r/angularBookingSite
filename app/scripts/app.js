@@ -15,9 +15,9 @@ angular
   ])
   .config(function($stateProvider, $urlRouterProvider) {
 
-    $urlRouterProvider.when('/dashboard', '/dashboard/overview');
-    $urlRouterProvider.otherwise('/login');
-
+    $urlRouterProvider.when('/dashboard', '/dashboard/home');
+    //$urlRouterProvider.otherwise('/login');
+    $urlRouterProvider.otherwise('/dashboard/404');
     $stateProvider
       .state('base', {
         abstract: true,
@@ -36,15 +36,30 @@ angular
           templateUrl: 'views/dashboard.html',
           controller: 'DashboardCtrl'
         })
-          .state('overview', {
-            url: '/overview',
+          .state('gallery', {
+            url: '/gallery',
             parent: 'dashboard',
-            templateUrl: 'views/dashboard/overview.html'
+            templateUrl: 'views/dashboard/gallery.html'
           })
-          .state('reports', {
-            url: '/reports',
+          .state('about', {
+            url: '/about',
             parent: 'dashboard',
-            templateUrl: 'views/dashboard/reports.html'
+            templateUrl: 'views/dashboard/about.html'
+          })
+          .state('bookings', {
+            url: '/bookings',
+            parent: 'dashboard',
+            templateUrl: 'views/dashboard/bookings.html'
+          })
+          .state('home', {
+            url: '/home',
+            parent: 'dashboard',
+            templateUrl: 'views/dashboard/home.html'
+          })
+          .state('404', {
+            url: '/404',
+            parent: 'dashboard',
+            templateUrl: 'views/dashboard/404.html'
           });
 
   });
